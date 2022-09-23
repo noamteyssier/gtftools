@@ -1,5 +1,5 @@
 use anyhow::Result;
-use csv::ByteRecord;
+use bstr::ByteSlice;
 use crate::parse::parse_attributes;
 use super::{AttributeRef, GtfRecord};
 
@@ -39,8 +39,8 @@ impl <'a> GtfRecordRef <'a> {
         }
     }
 
-    pub fn from_byte_record(record: &'a ByteRecord) -> Result<Self> {
-        let mut it = record.iter();
+    pub fn from_bytes(record: &'a [u8]) -> Result<Self> {
+        let mut it = record.split_str("\t");
         let seqname = it.next().unwrap_or_default();
         let source = it.next().unwrap_or_default();
         let feature = it.next().unwrap_or_default();
