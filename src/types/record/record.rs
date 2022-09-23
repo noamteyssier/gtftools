@@ -6,8 +6,8 @@ pub struct GtfRecord {
     pub seqname: Vec<u8>,
     pub source: Vec<u8>,
     pub feature: Vec<u8>,
-    pub start: Vec<u8>,
-    pub end: Vec<u8>,
+    pub start: usize,
+    pub end: usize,
     pub score: Vec<u8>,
     pub strand: Vec<u8>,
     pub frame: Vec<u8>,
@@ -33,8 +33,8 @@ mod testing {
         assert_eq!(record.seqname, b"1");
         assert_eq!(record.source, b"ensembl_havana");
         assert_eq!(record.feature, b"gene");
-        assert_eq!(record.start, b"1471765");
-        assert_eq!(record.end, b"1497848");
+        assert_eq!(record.start, 1471765);
+        assert_eq!(record.end, 1497848);
         assert_eq!(record.score, b".");
         assert_eq!(record.strand, b"+");
         assert_eq!(record.frame, b".");
