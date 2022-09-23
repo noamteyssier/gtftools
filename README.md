@@ -1,6 +1,8 @@
 # nom-gtf
 
-a parser for gtf built using nom
+a parser for gtf built using nom.
+
+This achieves near `wc -l` throughput.
 
 ## Usage
 
