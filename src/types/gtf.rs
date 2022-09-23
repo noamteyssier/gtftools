@@ -1,5 +1,4 @@
 use anyhow::Result;
-use csv::ByteRecord;
 use super::{Attribute, GtfRecordRef};
 
 #[derive(Debug, Default)]
@@ -15,8 +14,8 @@ pub struct GtfRecord {
     pub attribute: Attribute
 }
 impl GtfRecord {
-    pub fn from_byte_record(record: &ByteRecord) -> Result<Self> {
-        let ref_record = GtfRecordRef::from_byte_record(record)?;
+    pub fn from_bytes(record: &[u8]) -> Result<Self> {
+        let ref_record = GtfRecordRef::from_bytes(record)?;
         Ok(ref_record.to_owned())
     }
 }
