@@ -1,4 +1,7 @@
-use super::{Attribute, GtfRecordRef};
+use crate::types::{
+    attribute::Attribute,
+    record::GtfRecordRef
+};
 use anyhow::Result;
 
 #[derive(Debug, Default)]

@@ -1,5 +1,10 @@
-use super::{AttributeRef, GtfRecord};
-use crate::parse::parse_attributes;
+use crate::{
+    parse::parse_attributes,
+    types::{
+        attribute::AttributeRef,
+        record::GtfRecord,
+    }
+};
 use anyhow::Result;
 use bstr::ByteSlice;
 

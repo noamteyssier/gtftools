@@ -1,13 +1,7 @@
 mod attribute;
-mod attribute_ref;
-mod field;
-mod gtf;
-mod gtf_reader;
-mod gtf_ref;
+mod record;
+mod reader;
 
-pub use attribute::Attribute;
-pub use attribute_ref::AttributeRef;
-pub use field::Field;
-pub use gtf::GtfRecord;
-pub use gtf_reader::GtfReader;
-pub use gtf_ref::GtfRecordRef;
+pub use attribute::{Attribute, AttributeRef, Field};
+pub use record::{GtfRecord, GtfRecordRef};
+pub use reader::GtfReader;
