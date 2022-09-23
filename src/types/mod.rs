@@ -1,7 +1,7 @@
 mod attribute;
-mod record;
 mod reader;
+mod record;
 
 pub use attribute::{Attribute, AttributeRef, Field};
-pub use record::{GtfRecord, GtfRecordRef};
 pub use reader::GtfReader;
+pub use record::{GtfRecord, GtfRecordRef};

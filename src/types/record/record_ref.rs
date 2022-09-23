@@ -1,9 +1,6 @@
 use crate::{
     parse::parse_attributes,
-    types::{
-        attribute::AttributeRef,
-        record::GtfRecord,
-    }
+    types::{attribute::AttributeRef, record::GtfRecord},
 };
 use anyhow::Result;
 use bstr::ByteSlice;
@@ -74,7 +71,7 @@ impl<'a> GtfRecordRef<'a> {
 #[cfg(test)]
 mod testing {
     use super::GtfRecordRef;
-    
+
     #[test]
     fn test_gtf_ref() {
         let line: &[u8] = br#"1	ensembl_havana	gene	1471765	1497848	.	+	.	gene_id "ENSG00000160072"; gene_version "20"; gene_name "ATAD3B"; gene_source "ensembl_havana"; gene_biotype "protein_coding";"#;

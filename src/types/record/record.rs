@@ -1,7 +1,4 @@
-use crate::types::{
-    attribute::Attribute,
-    record::GtfRecordRef
-};
+use crate::types::{attribute::Attribute, record::GtfRecordRef};
 use anyhow::Result;
 
 #[derive(Debug, Default)]
@@ -26,7 +23,7 @@ impl GtfRecord {
 #[cfg(test)]
 mod testing {
     use super::GtfRecord;
-    
+
     #[test]
     fn test_gtf() {
         let line: &[u8] = br#"1	ensembl_havana	gene	1471765	1497848	.	+	.	gene_id "ENSG00000160072"; gene_version "20"; gene_name "ATAD3B"; gene_source "ensembl_havana"; gene_biotype "protein_coding";"#;
