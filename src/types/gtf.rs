@@ -1,5 +1,5 @@
-use anyhow::Result;
 use super::{Attribute, GtfRecordRef};
+use anyhow::Result;
 
 #[derive(Debug, Default)]
 pub struct GtfRecord {
@@ -11,7 +11,7 @@ pub struct GtfRecord {
     pub score: Vec<u8>,
     pub strand: Vec<u8>,
     pub frame: Vec<u8>,
-    pub attribute: Attribute
+    pub attribute: Attribute,
 }
 impl GtfRecord {
     pub fn from_bytes(record: &[u8]) -> Result<Self> {
@@ -19,6 +19,3 @@ impl GtfRecord {
         Ok(ref_record.to_owned())
     }
 }
-
-
-

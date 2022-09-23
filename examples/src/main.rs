@@ -4,7 +4,6 @@ use anyhow::Result;
 use flate2::read::MultiGzDecoder;
 use nom_gtf::GtfReader;
 
-
 fn from_gzip_file(path: &str) -> Result<()> {
     let count = File::open(path)
         .map(MultiGzDecoder::new)

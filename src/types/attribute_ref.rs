@@ -12,7 +12,7 @@ pub struct AttributeRef<'a> {
     pub protein_id: Option<&'a [u8]>,
     pub exon_number: Option<&'a [u8]>,
 }
-impl <'a> AttributeRef <'a> {
+impl<'a> AttributeRef<'a> {
     pub fn to_owned(&self) -> Attribute {
         let gene_id = self.gene_id.map(|x| x.to_owned());
         let gene_version = self.gene_version.map(|x| x.to_owned());
@@ -32,38 +32,38 @@ impl <'a> AttributeRef <'a> {
             transcript_name,
             transcript_biotype,
             protein_id,
-            exon_number
+            exon_number,
         }
     }
     pub fn update_field(&mut self, field: Field, value: &'a [u8]) {
         match field {
-            Field::GeneId=> {
+            Field::GeneId => {
                 self.gene_id = Some(value);
-            },
+            }
             Field::GeneVersion => {
                 self.gene_version = Some(value);
-            },
+            }
             Field::GeneName => {
                 self.gene_name = Some(value);
-            },
+            }
             Field::TranscriptId => {
                 self.transcript_id = Some(value);
-            },
+            }
             Field::TranscriptVersion => {
                 self.transcript_version = Some(value);
-            },
+            }
             Field::TranscriptName => {
                 self.transcript_name = Some(value);
-            },
+            }
             Field::TranscriptBiotype => {
                 self.transcript_biotype = Some(value);
-            },
+            }
             Field::ProteinId => {
                 self.protein_id = Some(value);
-            },
+            }
             Field::ExonNumber => {
                 self.exon_number = Some(value);
-            },
+            }
         }
     }
 }

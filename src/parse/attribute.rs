@@ -1,6 +1,6 @@
 use crate::types::{AttributeRef, Field};
 use nom::{
-    bytes::complete::{take, take_till}, 
+    bytes::complete::{take, take_till},
     multi::many0,
     IResult,
 };
@@ -29,11 +29,8 @@ fn tuple(input: &[u8]) -> IResult<&[u8], (Option<Field>, &[u8])> {
 pub fn parse_attributes(input: &[u8]) -> IResult<&[u8], AttributeRef> {
     let mut attributes = AttributeRef::default();
     let (input, field_attributes) = many0(tuple)(input)?;
-    field_attributes
-        .iter()
-        .for_each(|(field, value)| {
-            field.map(|f| attributes.update_field(f, value));
-        });
+    field_attributes.iter().for_each(|(field, value)| {
+        field.map(|f| attributes.update_field(f, value));
+    });
     Ok((input, attributes))
 }
-

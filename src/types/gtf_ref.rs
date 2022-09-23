@@ -1,10 +1,10 @@
+use super::{AttributeRef, GtfRecord};
+use crate::parse::parse_attributes;
 use anyhow::Result;
 use bstr::ByteSlice;
-use crate::parse::parse_attributes;
-use super::{AttributeRef, GtfRecord};
 
 #[derive(Debug, Default)]
-pub struct GtfRecordRef <'a> {
+pub struct GtfRecordRef<'a> {
     pub seqname: &'a [u8],
     pub source: &'a [u8],
     pub feature: &'a [u8],
@@ -13,9 +13,9 @@ pub struct GtfRecordRef <'a> {
     pub score: &'a [u8],
     pub strand: &'a [u8],
     pub frame: &'a [u8],
-    pub attribute: AttributeRef<'a>
+    pub attribute: AttributeRef<'a>,
 }
-impl <'a> GtfRecordRef <'a> {
+impl<'a> GtfRecordRef<'a> {
     pub fn to_owned(&self) -> GtfRecord {
         let seqname = self.seqname.to_owned();
         let source = self.source.to_owned();
@@ -26,16 +26,16 @@ impl <'a> GtfRecordRef <'a> {
         let strand = self.strand.to_owned();
         let frame = self.frame.to_owned();
         let attribute = self.attribute.to_owned();
-        GtfRecord { 
-            seqname, 
-            source, 
-            feature, 
-            start, 
-            end, 
-            score, 
-            strand, 
-            frame, 
-            attribute, 
+        GtfRecord {
+            seqname,
+            source,
+            feature,
+            start,
+            end,
+            score,
+            strand,
+            frame,
+            attribute,
         }
     }
 
@@ -60,9 +60,8 @@ impl <'a> GtfRecordRef <'a> {
             score,
             strand,
             frame,
-            attribute
+            attribute,
         };
         Ok(gtf_record)
     }
 }
-

@@ -22,8 +22,7 @@ impl Field {
             b"transcript_biotype" => Some(Self::TranscriptBiotype),
             b"protein_id" => Some(Self::ProteinId),
             b"exon_number" => Some(Self::ExonNumber),
-            _ => None
+            _ => None,
         }
     }
 }
-
