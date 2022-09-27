@@ -1,7 +1,7 @@
 use crate::types::{attribute::Attribute, record::GtfRecordRef};
 use anyhow::Result;
 
-#[derive(Debug, Default)]
+#[derive(Debug, Default, Clone)]
 pub struct GtfRecord {
     pub seqname: Vec<u8>,
     pub source: Vec<u8>,

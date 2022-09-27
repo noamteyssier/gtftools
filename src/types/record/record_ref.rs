@@ -5,7 +5,7 @@ use crate::{
 use anyhow::{Result, anyhow};
 use bstr::ByteSlice;
 
-#[derive(Debug, Default)]
+#[derive(Debug, Default, Clone)]
 pub struct GtfRecordRef<'a> {
     pub seqname: &'a [u8],
     pub source: &'a [u8],
