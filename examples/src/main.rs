@@ -2,7 +2,7 @@ use std::{fs::File, io::BufReader};
 
 use anyhow::Result;
 use flate2::read::MultiGzDecoder;
-use nom_gtf::GtfReader;
+use gtftools::GtfReader;
 
 fn from_gzip_file(path: &str) -> Result<()> {
     let count = File::open(path)

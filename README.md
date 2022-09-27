@@ -1,8 +1,8 @@
-# nom-gtf
+# gtftools
 
-a parser for gtf built using nom.
+a crate for parsing and querying Ensembl-GTF formatted files.
 
-This achieves near `wc -l` throughput.
+Parser achieves near `wc -l` throughput.
 
 ## Usage
 
@@ -12,7 +12,7 @@ This is meant to be used as an iterator and receives any item implementing `BufR
 
 ```rust
 use std::{fs::File, io::BufReader};
-use nom_gtf::GtfReader;
+use gtftools::GtfReader;
 
 let handle = File::open("data/example.gtf")
   .map(BufReader::new)
@@ -30,7 +30,7 @@ assert_eq!(num_records, 10);
 ```rust
 use std::{fs::File, io::BufReader};
 use flate2::read::MultiGzDecoder;
-use nom_gtf::GtfReader;
+use gtftools::GtfReader;
 
 let handle = File::open("data/example.gtf.gz")
   .map(MultiGzDecoder::new)
