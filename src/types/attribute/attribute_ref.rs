@@ -1,6 +1,6 @@
 use super::{Attribute, Field};
 
-#[derive(Debug, Default)]
+#[derive(Debug, Default, Clone)]
 pub struct AttributeRef<'a> {
     pub gene_id: Option<&'a [u8]>,
     pub gene_version: Option<&'a [u8]>,
