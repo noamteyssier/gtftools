@@ -2,7 +2,7 @@ use crate::{
     parse::parse_attributes,
     types::{attribute::AttributeRef, record::GtfRecord},
 };
-use anyhow::{Result, anyhow};
+use anyhow::{anyhow, Result};
 use bstr::ByteSlice;
 
 #[derive(Debug, Default, Clone)]

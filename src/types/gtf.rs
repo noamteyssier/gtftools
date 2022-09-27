@@ -1,13 +1,15 @@
-use anyhow::{Result, bail};
+use super::{GtfReader, GtfRecord};
+use anyhow::{bail, Result};
 use bstr::ByteSlice;
-use std::{fs::File, io::{BufReader, BufRead, Read}};
-use super::{GtfRecord, GtfReader};
+use std::{
+    fs::File,
+    io::{BufRead, BufReader, Read},
+};
 
 pub struct Gtf {
-    records: Vec<GtfRecord>
+    records: Vec<GtfRecord>,
 }
 impl Gtf {
-
     pub fn from_file(path: &str) -> Result<Self> {
         let file = File::open(path)?;
         Self::from_reader(file)
@@ -32,7 +34,7 @@ impl Gtf {
         if records.len() == 0 {
             bail!("No records found in reader")
         } else {
-            Ok( Self { records } )
+            Ok(Self { records })
         }
     }
 
@@ -41,7 +43,8 @@ impl Gtf {
     }
 
     pub fn feature_subset(&self, feature_name: &str) -> Self {
-        let records = self.records
+        let records = self
+            .records
             .iter()
             .filter(|x| x.feature.contains_str(feature_name))
             .map(|x| x.to_owned())
