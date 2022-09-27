@@ -1,11 +1,11 @@
 [package]
-name = "nom-gtf"
+name = "gtftools"
 version = "0.1.4"
 edition = "2021"
-description = "A barebones GTF reader written with nom"
+description = "A barebones GTF toolkit with fast nom-based IO"
 license = "MIT"
-repository = "https://github.com/noamteyssier/nom-gtf"
-documentation = "https://docs.rs/nom-gtf"
+repository = "https://github.com/noamteyssier/gtftools"
+documentation = "https://docs.rs/gtftools"
 keywords = ["bioinformatics", "GTF", "parser", "nom", "ensembl"]
 categories = ["science"]
 
