@@ -10,6 +10,10 @@ pub struct Gtf {
     records: Vec<GtfRecord>,
 }
 impl Gtf {
+    pub fn new(records: Vec<GtfRecord>) -> Self {
+        Self { records }
+    }
+
     pub fn from_file(path: &str) -> Result<Self> {
         let file = File::open(path)?;
         Self::from_reader(file)
@@ -62,6 +66,14 @@ impl Gtf {
 
     pub fn exons(&self) -> Self {
         self.feature_subset("exon")
+    }
+
+    pub fn iter(&self) -> impl Iterator<Item = &GtfRecord> {
+        self.records.iter()
+    }
+
+    pub fn sort(&mut self) {
+        self.records.sort_unstable_by(|a, b| a.start.cmp(&b.start));
     }
 }
 
