@@ -1,3 +1,4 @@
 pub mod parse;
 pub mod types;
-pub use types::{GtfReader, GtfRecord, GtfRecordRef};
+pub mod features;
+pub use types::{Gtf, GtfReader, GtfRecord, GtfRecordRef};
