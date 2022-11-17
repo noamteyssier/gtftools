@@ -1,5 +1,5 @@
 use criterion::{criterion_group, criterion_main, Criterion};
-use nom_gtf::{GtfRecord, GtfRecordRef};
+use gtftools::{GtfRecord, GtfRecordRef};
 
 pub fn benchmark_gtf_record_ref(c: &mut Criterion) {
     let line: &[u8] = br#"1	ensembl_havana	gene	1471765	1497848	.	+	.	gene_id "ENSG00000160072"; gene_version "20"; gene_name "ATAD3B"; gene_source "ensembl_havana"; gene_biotype "protein_coding";"#;
