@@ -14,7 +14,12 @@ fn parse_field(input: &[u8]) -> IResult<&[u8], &[u8]> {
 fn parse_value(input: &[u8]) -> IResult<&[u8], &[u8]> {
     let (input, value) = take_till(|c| c == b';')(input)?;
     let (input, _) = take(1usize)(input)?;
-    let value = &value[1..value.len() - 1]; // strip the quotations
+    let value = if value[0] == b'"' {
+        &value[1..value.len() - 1]
+    } else {
+        value
+    };
+
     Ok((input, value))
 }
 
