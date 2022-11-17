@@ -8,4 +8,4 @@ edition = "2021"
 [dependencies]
 anyhow = "1.0.65"
 flate2 = "1.0.24"
-nom-gtf = {path = "../"}
+gtftools = {path = "../"}
