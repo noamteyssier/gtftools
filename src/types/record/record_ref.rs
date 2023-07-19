@@ -1,5 +1,5 @@
 use crate::{
-    parse::parse_attributes,
+    parse::{parse_attributes, parse_to_usize},
     types::{attribute::AttributeRef, record::GtfRecord},
 };
 use anyhow::{anyhow, Result};
@@ -66,11 +66,6 @@ impl<'a> GtfRecordRef<'a> {
         };
         Ok(gtf_record)
     }
-}
-
-fn parse_to_usize(value: &[u8]) -> Result<usize> {
-    let usize_value = std::str::from_utf8(value)?.parse()?;
-    Ok(usize_value)
 }
 
 #[cfg(test)]
