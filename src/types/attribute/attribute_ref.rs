@@ -73,13 +73,11 @@ impl<'a> AttributeRef<'a> {
                 self.exon_id = Some(value);
             }
             Field::ExonNumber => {
-                let value = parse_to_usize(value)
-                    .expect("Could not parse exon number to integer");
+                let value = parse_to_usize(value).expect("Could not parse exon number to integer");
                 self.exon_number = Some(value);
             }
             Field::ExonVersion => {
-                let value = parse_to_usize(value)
-                    .expect("Could not parse exon version to integer");
+                let value = parse_to_usize(value).expect("Could not parse exon version to integer");
                 self.exon_version = Some(value);
             }
             Field::GeneBiotype => {
@@ -92,16 +90,15 @@ impl<'a> AttributeRef<'a> {
                 self.gene_source = Some(value);
             }
             Field::GeneVersion => {
-                let value = parse_to_usize(value)
-                    .expect("Could not parse gene version to integer");
+                let value = parse_to_usize(value).expect("Could not parse gene version to integer");
                 self.gene_version = Some(value);
             }
             Field::ProteinId => {
                 self.protein_id = Some(value);
             }
             Field::ProteinVersion => {
-                let value = parse_to_usize(value)
-                    .expect("Could not parse protein version to integer");
+                let value =
+                    parse_to_usize(value).expect("Could not parse protein version to integer");
                 self.protein_version = Some(value);
             }
             Field::Tag => {
@@ -123,8 +120,8 @@ impl<'a> AttributeRef<'a> {
                 self.transcript_support_level = Some(value);
             }
             Field::TranscriptVersion => {
-                let value = parse_to_usize(value)
-                    .expect("Could not parse transcript version to integer");
+                let value =
+                    parse_to_usize(value).expect("Could not parse transcript version to integer");
                 self.transcript_version = Some(value);
             }
             _ => {}
