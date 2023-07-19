@@ -19,6 +19,7 @@ pub struct GtfRecord {
     pub strand: Vec<u8>,
     #[serde(serialize_with = "parse_bytes")]
     pub frame: Vec<u8>,
+    #[serde(flatten)]
     pub attribute: Attribute,
 }
 impl GtfRecord {
@@ -60,7 +61,7 @@ mod testing {
         let serialized = serde_json::to_string(&record).unwrap();
         assert_eq!(
             serialized,
-            r#"{"seqname":"1","source":"ensembl_havana","feature":"gene","start":1471765,"end":1497848,"score":".","strand":"+","frame":".","attribute":{"gene_id":"ENSG00000160072","gene_version":"20","gene_name":"ATAD3B","transcript_id":null,"transcript_version":null,"transcript_name":null,"transcript_biotype":null,"protein_id":null,"exon_number":null}}"#
+            r#"{"seqname":"1","source":"ensembl_havana","feature":"gene","start":1471765,"end":1497848,"score":".","strand":"+","frame":".","gene_id":"ENSG00000160072","gene_version":"20","gene_name":"ATAD3B","transcript_id":null,"transcript_version":null,"transcript_name":null,"transcript_biotype":null,"protein_id":null,"exon_number":null}"#
         )
     }
 }
