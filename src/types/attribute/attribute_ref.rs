@@ -83,6 +83,9 @@ impl<'a> AttributeRef<'a> {
             Field::GeneBiotype => {
                 self.gene_biotype = Some(value);
             }
+            Field::GeneId => {
+                self.gene_id = Some(value);
+            }
             Field::GeneName => {
                 self.gene_name = Some(value);
             }
@@ -124,7 +127,6 @@ impl<'a> AttributeRef<'a> {
                     parse_to_usize(value).expect("Could not parse transcript version to integer");
                 self.transcript_version = Some(value);
             }
-            _ => {}
         }
     }
 }
