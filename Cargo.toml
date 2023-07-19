@@ -1,6 +1,6 @@
 [package]
 name = "gtftools"
-version = "0.1.8"
+version = "0.1.9"
 edition = "2021"
 description = "A barebones GTF toolkit with fast nom-based IO"
 license = "MIT"
