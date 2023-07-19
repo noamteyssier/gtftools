@@ -61,7 +61,7 @@ mod testing {
         let serialized = serde_json::to_string(&record).unwrap();
         assert_eq!(
             serialized,
-            "{\"seqname\":\"1\",\"source\":\"ensembl_havana\",\"feature\":\"gene\",\"start\":1471765,\"end\":1497848,\"score\":\".\",\"strand\":\"+\",\"frame\":\".\",\"ccds_id\":null,\"exon_id\":null,\"exon_number\":null,\"exon_version\":null,\"gene_biotype\":null,\"gene_id\":null,\"gene_name\":\"ATAD3B\",\"gene_source\":\"ensembl_havana\",\"gene_version\":20,\"protein_id\":null,\"protein_version\":null,\"tag\":null,\"transcript_biotype\":null,\"transcript_id\":null,\"transcript_name\":null,\"transcript_source\":null,\"transcript_support_level\":null,\"transcript_version\":null}"
+            "{\"seqname\":\"1\",\"source\":\"ensembl_havana\",\"feature\":\"gene\",\"start\":1471765,\"end\":1497848,\"score\":\".\",\"strand\":\"+\",\"frame\":\".\",\"gene_name\":\"ATAD3B\",\"gene_source\":\"ensembl_havana\",\"gene_version\":20}"
         )
     }
 }
