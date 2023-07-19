@@ -1,7 +1,7 @@
-use crate::types::{attribute::Attribute, record::GtfRecordRef};
-use serde::{Deserialize, Serialize};
-use anyhow::Result;
 use crate::parse::parse_bytes;
+use crate::types::{attribute::Attribute, record::GtfRecordRef};
+use anyhow::Result;
+use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Default, Clone, Serialize, Deserialize)]
 pub struct GtfRecord {
@@ -27,7 +27,6 @@ impl GtfRecord {
         Ok(ref_record.to_owned())
     }
 }
-
 
 #[cfg(test)]
 mod testing {
@@ -62,6 +61,6 @@ mod testing {
         assert_eq!(
             serialized,
             r#"{"seqname":"1","source":"ensembl_havana","feature":"gene","start":1471765,"end":1497848,"score":".","strand":"+","frame":".","attribute":{"gene_id":"ENSG00000160072","gene_version":"20","gene_name":"ATAD3B","transcript_id":null,"transcript_version":null,"transcript_name":null,"transcript_biotype":null,"protein_id":null,"exon_number":null}}"#
-            )
+        )
     }
 }
