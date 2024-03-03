@@ -1,19 +1,27 @@
+use crate::parse::parse_bytes;
 use crate::{
     parse::{parse_attributes, parse_to_usize},
     types::{attribute::AttributeRef, record::GtfRecord},
 };
 use anyhow::{anyhow, Result};
 use bstr::ByteSlice;
+use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Default, Clone)]
+#[derive(Debug, Default, Clone, Serialize, Deserialize)]
 pub struct GtfRecordRef<'a> {
+    #[serde(serialize_with = "parse_bytes")]
     pub seqname: &'a [u8],
+    #[serde(serialize_with = "parse_bytes")]
     pub source: &'a [u8],
+    #[serde(serialize_with = "parse_bytes")]
     pub feature: &'a [u8],
     pub start: usize,
     pub end: usize,
+    #[serde(serialize_with = "parse_bytes")]
     pub score: &'a [u8],
+    #[serde(serialize_with = "parse_bytes")]
     pub strand: &'a [u8],
+    #[serde(serialize_with = "parse_bytes")]
     pub frame: &'a [u8],
     pub attribute: AttributeRef<'a>,
 }

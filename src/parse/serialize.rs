@@ -17,3 +17,13 @@ where
         None => s.serialize_none(),
     }
 }
+
+pub fn parse_optional_bytes_ref<S>(x: &Option<&[u8]>, s: S) -> Result<S::Ok, S::Error>
+where
+    S: Serializer,
+{
+    match x {
+        Some(x) => parse_bytes(x, s),
+        None => s.serialize_none(),
+    }
+}

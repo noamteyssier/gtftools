@@ -1,25 +1,78 @@
-use crate::parse::parse_to_usize;
-
 use super::{Attribute, Field};
+use crate::parse::parse_optional_bytes_ref;
+use crate::parse::parse_to_usize;
+use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Default, Clone)]
+#[derive(Debug, Default, Clone, Serialize, Deserialize)]
 pub struct AttributeRef<'a> {
+    #[serde(
+        serialize_with = "parse_optional_bytes_ref",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub ccds_id: Option<&'a [u8]>,
+    #[serde(
+        serialize_with = "parse_optional_bytes_ref",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub exon_id: Option<&'a [u8]>,
     pub exon_number: Option<usize>,
     pub exon_version: Option<usize>,
+    #[serde(
+        serialize_with = "parse_optional_bytes_ref",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub gene_biotype: Option<&'a [u8]>,
+    #[serde(
+        serialize_with = "parse_optional_bytes_ref",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub gene_id: Option<&'a [u8]>,
+    #[serde(
+        serialize_with = "parse_optional_bytes_ref",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub gene_name: Option<&'a [u8]>,
+    #[serde(
+        serialize_with = "parse_optional_bytes_ref",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub gene_source: Option<&'a [u8]>,
     pub gene_version: Option<usize>,
+    #[serde(
+        serialize_with = "parse_optional_bytes_ref",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub protein_id: Option<&'a [u8]>,
     pub protein_version: Option<usize>,
+    #[serde(
+        serialize_with = "parse_optional_bytes_ref",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub tag: Option<&'a [u8]>,
+    #[serde(
+        serialize_with = "parse_optional_bytes_ref",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub transcript_biotype: Option<&'a [u8]>,
+    #[serde(
+        serialize_with = "parse_optional_bytes_ref",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub transcript_id: Option<&'a [u8]>,
+    #[serde(
+        serialize_with = "parse_optional_bytes_ref",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub transcript_name: Option<&'a [u8]>,
+    #[serde(
+        serialize_with = "parse_optional_bytes_ref",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub transcript_source: Option<&'a [u8]>,
+    #[serde(
+        serialize_with = "parse_optional_bytes_ref",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub transcript_support_level: Option<&'a [u8]>,
     pub transcript_version: Option<usize>,
 }
